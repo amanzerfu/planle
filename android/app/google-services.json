@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "478345202720",
+    "firebase_url": "https://manny-37f1b.firebaseio.com",
+    "project_id": "manny-37f1b",
+    "storage_bucket": "manny-37f1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478345202720:android:5989d158a63ab38c230045",
+        "android_client_info": {
+          "package_name": "et.amanuwel.vevelapp.leplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478345202720-t7ba8du8s5ol9o2bt66k190opdj9rvge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6O6bhSy8mJ_LNBH_emad2tlscQaSEt4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478345202720-t7ba8du8s5ol9o2bt66k190opdj9rvge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478345202720:android:354a7d90438e0caf230045",
+        "android_client_info": {
+          "package_name": "et.com.womensaftyfinalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478345202720-t7ba8du8s5ol9o2bt66k190opdj9rvge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6O6bhSy8mJ_LNBH_emad2tlscQaSEt4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478345202720-t7ba8du8s5ol9o2bt66k190opdj9rvge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

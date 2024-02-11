@@ -1,7 +1,11 @@
+
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:leplan/Pages/home_screen.dart';
 import 'package:leplan/reusable_widgets/reusable_widgets.dart';
 import 'package:leplan/utils/color_utils.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}):super(key: key);
@@ -61,8 +65,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 20,
                   ),
                   reusableSignInSignUpButton(context, false, () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                  })
+                FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailEditTextController.text,
+                    password: _passwordEditTextController.text).then((value){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>HomeScreen()));
+                }).onError((error, stackTrace) {
+                  print("Error found: ${error.toString()}");
+                });
+                  }
+                  )
                 ],
               ),
             ),

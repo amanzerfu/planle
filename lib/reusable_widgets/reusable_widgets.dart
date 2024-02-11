@@ -6,7 +6,7 @@ Image logoWidget(String imageName) {
     imageName,
     fit: BoxFit.fitWidth,
     width: 240,
-    height: 240,
+    height: 100,
 
   );
 }
@@ -41,7 +41,7 @@ Container reusableSignInSignUpButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 30,
+    height: 50,
     margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
     child: ElevatedButton(

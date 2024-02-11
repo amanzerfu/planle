@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:leplan/Pages/home_screen.dart';
 import 'package:leplan/Pages/signup_screen.dart';
 import 'package:leplan/reusable_widgets/reusable_widgets.dart';
 import 'package:leplan/utils/color_utils.dart';
@@ -46,7 +48,33 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                reusableSignInSignUpButton(context, true, () {}),
+                reusableSignInSignUpButton(context, true, () {
+
+                  FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: _emailEditTextController.text,
+                      password: _passwordEditTextController.text).then((value) {
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>HomeScreen()));
+    }).onError((error, stackTrace) {
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content:
+                        Container(
+                          padding: EdgeInsets.all(16),
+                          height: 45,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(20)
+                          ),
+                          child: SnackBar(content: Text("${error.toString()}"),
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Colors.transparent,
+                            elevation: 0,),
+                        ),
+                      ),
+                    );
+      print("Error on sign in: ${error.toString()}");
+                  });  }),
                 signUpOption(context)
               ],
             ),
