@@ -1,7 +1,9 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:leplan/Pages/signin_screen.dart';
+import 'package:leplan/Pages/time_lines.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}):super(key :key);
 
@@ -35,13 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.brown,
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
+        onTap:(value) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TimeLines(),));
+        },
+        animationDuration: Duration(milliseconds: 300),
         backgroundColor:Colors.brown,
-          items: [
-BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
+          items: [Icon(Icons.home),
+        Icon(Icons.favorite),
+        Icon(Icons.settings),
+        Icon(Icons.manage_accounts),
       ],),
       body: SafeArea(
         child: Column(
@@ -75,7 +80,7 @@ BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
                       ),
                       padding: EdgeInsets.all(12),
                       child:IconButton(
-                        iconSize: 50,
+                        iconSize: 10,
                         color: Colors.blue,
                         onPressed: () {
                          FirebaseAuth.instance.signOut().then((value) {
@@ -126,7 +131,8 @@ BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("How do  you want to spend your day?",style: TextStyle(color: Colors.white,
+                    Text("How do  you want to spend your day?"
+                      ,style: TextStyle(color: Colors.white,
                         fontWeight: FontWeight.bold,fontSize: 12),),
                     Icon(
                       Icons.more_horiz,
@@ -169,7 +175,7 @@ BottomNavigationBarItem(icon: Icon(Icons.home),label: ''),
                       title: Text(tile,style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white),),
                       ),
                   ],
-                  onReorder: (olderIndex,newIndex) =>{},
+                  onReorder: (olderIndex,newIndex) => updateIndex(olderIndex, newIndex),
                 ),
               ),
             ),
